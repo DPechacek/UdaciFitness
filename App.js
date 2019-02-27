@@ -10,6 +10,7 @@ import { purple, white } from "./utils/colors";
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { Constants } from 'expo';
 import EntryDetail from './components/EntryDetail';
+import Live from './components/Live';
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
@@ -23,6 +24,7 @@ const Tabs = createBottomTabNavigator(
   {
     History: History,
     AddEntry: AddEntry,
+    Live: Live,
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -36,6 +38,8 @@ const Tabs = createBottomTabNavigator(
         } else if (routeName === 'AddEntry') {
           iconName = 'plus-square';
           IconComponent = FontAwesome;
+        } else if (routeName === 'Live') {
+          iconName = 'ios-speedometer';
         }
     
         return <IconComponent name={iconName} size={30} color={tintColor}/>
